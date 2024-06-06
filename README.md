@@ -1,4 +1,4 @@
-This is **Grocery Delivery App**. This app help you to fulfill your requirements with **Grocery Product**.
+>This is **Grocery Delivery App**. This app help you to fulfill your requirements with **Grocery Product**.
 
 # Getting Started
 
