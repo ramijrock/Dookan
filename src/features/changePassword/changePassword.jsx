@@ -24,6 +24,7 @@ const ChangePassword = () => {
   };
 
   const validate = () => {
+    console.log('called this function');
     Keyboard.dismiss();
     let valid = true;
     if (!inputs.oldPassword) {
