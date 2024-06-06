@@ -1,0 +1,11 @@
+export {default as RegisterFeatures} from './register';
+export {default as LoginFeatures} from './signin';
+export {default as ForgetPasswordFeatures} from './forgetPassword';
+export {default as RegVerifyFeatures} from './regVerify';
+export {default as CreatePasswordFeatures} from './createPassword';
+export {default as HDSearchFeatures} from './headerSearch';
+export {default as ProductCategory} from './homeCategory';
+export {default as ProductOffers} from './homeOffers';
+export {default as LWProductFeatures} from './listWisePage';
+export {default as CategoryProductFeatures} from './categoryproduct';
+export {default as ChangePasswordFeatures} from './changePassword';
