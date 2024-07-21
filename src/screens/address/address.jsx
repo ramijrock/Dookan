@@ -12,12 +12,12 @@ const Address = () => {
             <View style={styles.headerSection}>
                 <Arrow title={'Add Address'} name={'chevron-back'} onPress={() => navigation.goBack()} />
             </View>
-            <View style={{backgroundColor: COLORS.lightGrey, padding: 16}}>
-                <TouchableOpacity activeOpacity={0.8} style={styles.addBtn}>
+            <TouchableOpacity activeOpacity={0.8} style={styles.addBtnWrapper}>
+                <View style={styles.addBtn}>
                     <MaterialCommunityIcons name="plus" size={24} color={COLORS.textColor} />
-                    <Text style={styles.addText}>Add Customers</Text>
-                </TouchableOpacity>
-            </View>
+                    <Text style={styles.addText}>Add Address</Text>
+                </View>
+            </TouchableOpacity>
             <View style={styles.addressSection}>
                 <Text style={styles.addressCount}>3 saved addresses</Text>
             </View>
@@ -56,6 +56,11 @@ const styles = StyleSheet.create({
         backgroundColor:COLORS.lightwhite, 
         paddingBottom:10, 
         padding:16
+    },
+    addBtnWrapper:{
+        backgroundColor: COLORS.lightGrey, 
+        padding: 16, 
+        alignItems:'center'
     },
     addBtn:{
         flexDirection:'row',
