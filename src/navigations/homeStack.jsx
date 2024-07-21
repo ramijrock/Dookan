@@ -8,7 +8,7 @@ import {
     PaymentDetails,
     Logout,
     Notification,
-    Address,
+    // Address,
     ChangePassword
 } from "../screens";
 
@@ -23,7 +23,7 @@ const HomeStack = () => {
             <Stack.Screen name="PaymentMethod" component={PaymentMethod} />
             <Stack.Screen name="PaymentDetail" component={PaymentDetails} />
             <Stack.Screen name="Notification" component={Notification} />
-            <Stack.Screen name="Address" component={Address} />
+            {/* <Stack.Screen name="Address" component={Address} /> */}
             <Stack.Screen name="ChangePassword" component={ChangePassword} />
             <Stack.Screen name="Logout" component={Logout} />
         </Stack.Navigator>
