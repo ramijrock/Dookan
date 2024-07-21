@@ -9,7 +9,7 @@ import {
     Logout,
     Notification,
     // Address,
-    ChangePassword
+    // ChangePassword
 } from "../screens";
 
 const Stack = createNativeStackNavigator();
@@ -24,7 +24,7 @@ const HomeStack = () => {
             <Stack.Screen name="PaymentDetail" component={PaymentDetails} />
             <Stack.Screen name="Notification" component={Notification} />
             {/* <Stack.Screen name="Address" component={Address} /> */}
-            <Stack.Screen name="ChangePassword" component={ChangePassword} />
+            {/* <Stack.Screen name="ChangePassword" component={ChangePassword} /> */}
             <Stack.Screen name="Logout" component={Logout} />
         </Stack.Navigator>
     )
