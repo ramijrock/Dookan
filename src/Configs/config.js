@@ -1,6 +1,6 @@
 const isDev = false; //false mean staging
 export default {
-    BASE_URL: isDev ? "http://localhost:3000/admin/" : "https://gro-mart-admin.onrender.com/admin/",
+    BASE_URL: isDev ? "http://localhost:3000/admin/" : "https://gromart-backend.onrender.com",
     SUCCESS_TYPE: "success",
     ERROR_TYPE: "error",
     ALERT_TYPE: "alert",

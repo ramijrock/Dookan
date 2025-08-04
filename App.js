@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import SplashScreen from 'react-native-splash-screen';
 import GlobalState from './src/context/globalState';
 import { readData } from './src/utils/Utils';
