@@ -3,8 +3,8 @@ import Configs from '../../Configs/config';
 
 
 export const getCategoryData = () => {
-    let url = Configs.BASE_URL + "categories";
-    return sendGetAuthRequest(url);
+    let url = Configs.BASE_URL + "category/categories-list";
+    return sendGetRequest(url);
 };
 
 export const getSubCategoryData = (catId) => {
