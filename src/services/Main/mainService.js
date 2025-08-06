@@ -7,14 +7,14 @@ export const getCategoryData = () => {
     return sendGetRequest(url);
 };
 
-export const getSubCategoryData = (catId) => {
-    let url = Configs.BASE_URL + `subcategory/getSubCategoryByid?catid=${catId}`;
-    return sendGetRequest(url);
+export const getSubCategoryData = (params) => {
+    let url = Configs.BASE_URL + `sub-category/list`;
+    return sendGetRequest(url, params);
 };
 
-export const getProductByCatId = (catId) => {
-    let url = Configs.BASE_URL + `products/BycategoryID?categoryid=${catId}`;
-    return sendGetAuthRequest(url);
+export const getProductByCatId = (params) => {
+    let url = Configs.BASE_URL + `product/products-list`;
+    return sendGetRequest(url, params);
 };
 
 export const getProductBySubCatId = (subCatId) => {

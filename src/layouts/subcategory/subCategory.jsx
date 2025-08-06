@@ -17,7 +17,7 @@ const SubCategory = (props) => {
                     props.subCategoryList.map((item) => {
                         return (
                             <TouchableOpacity key={item._id} style={styles.catButton} onPress={() => props.onPress(item._id)}>
-                                <Text style={styles.catName}>{item.subcategoryname}</Text>
+                                <Text style={styles.catName}>{item.subCategoryName}</Text>
                             </TouchableOpacity>
                         )
                     })

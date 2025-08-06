@@ -31,7 +31,10 @@ const CategoryProduct = (props) => {
     }, [navigation])
 
     const getSubCategory = () => {
-        getSubCategoryData(props.route.params?.id)
+        let params = {
+            categoryId: props.route.params?.id
+        }
+        getSubCategoryData(params)
             .then((res) => {
                 setSubCategory(res?.data);
             })
@@ -47,6 +50,7 @@ const CategoryProduct = (props) => {
     const getAllCategoriesProduct = () => {
         getProductByCatId(props.route.params?.id)
             .then((res) => {
+                console.log("res==========>", res);
                 setCategoryAllProduct(res?.data);
             })
             .catch((err) => {
@@ -121,7 +125,8 @@ const CategoryProduct = (props) => {
                 <SubCategory subCategoryList={subcategory} categoryId={props.route.params?.id} onPress={(id) => getAllSubCategoriesProduct(id)} allProduct={getAllCategoriesProduct} />
                 <CategoryProductFeatures 
                     onPress={(item) => navigation.navigate('ProductDetails', {productId: item?._id})} 
-                    productData={categoryAllProduct} 
+                    // productData={categoryAllProduct} 
+                    productData={[]} 
                     onPressFavourite={favourite}
                     onPressRemoveFavourite={removeFav}
                 />
