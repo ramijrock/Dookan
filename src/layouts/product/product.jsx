@@ -38,7 +38,7 @@ const Product = ({onPress, data, onPressFavourite, onPressRemoveFav}) => {
                     </View>
                 }
                 <View style={styles.imgSection}>
-                    <Card.Cover style={styles.cardImg} source={{uri: data?.image ?? 'https://res.cloudinary.com/dzqyxaxmv/image/upload/v1685379550/no-results_sbrhzn.png'}} />
+                    <Card.Cover style={styles.cardImg} source={{uri: data?.images[0]?.url}} />
                 </View>
                 <View style={styles.content}>
                     <View style={styles.contentSection}>
@@ -47,13 +47,13 @@ const Product = ({onPress, data, onPressFavourite, onPressRemoveFav}) => {
                     </View>
                     <View style={styles.priceSection}>
                         <Text style={styles.price}>Price:</Text>
-                        <Text style={styles.title}>{`₹ ${data?.price?.actualprice ?? 0}`}</Text>
+                        <Text style={styles.title}>{`₹ ${data?.discount ? data?.finalPrice :data?.price}`}</Text>
                     </View>
                 </View>
                 <View style={styles.actionSection}>
                     <View style={styles.ratingSection}>
                         <Ionicons name="star-outline" size={20} color={COLORS.lightPrimary} />
-                        <Text style={{fontSize:16, marginLeft:5, color:COLORS.primary}}>{data?.totalrating ?? '0.0'}</Text>
+                        <Text style={{fontSize:16, marginLeft:5, color:COLORS.primary}}>{data?.rating?.average ?? '0.0'}</Text>
                     </View>
                     <View style={styles.button}>
                         <Button btnName={'Add to cart'} height={25} fontSize={11} borderRadius={5} />

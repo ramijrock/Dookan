@@ -9,7 +9,7 @@ const CategoryProduct = ({onPress, productData, onPressFavourite, onPressRemoveF
     return (
         <View style={styles.productList}>
             {
-                productData?.map((item, index) => {
+                productData?.products?.map((item, index) => {
                     return (
                         <ProductCard 
                             onPress={onPress} 
