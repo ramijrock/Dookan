@@ -1,5 +1,4 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useState } from "react";
 
 export const readData = async (key) => {
     try {

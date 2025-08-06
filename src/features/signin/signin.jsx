@@ -6,9 +6,13 @@ import {COLORS} from '../../utils/globalColors';
 import {login} from '../../services/Auth/authServices';
 import {writeData} from '../../utils/Utils';
 import AppContext from '../../context/appContext';
+import { useDispatch } from 'react-redux';
+import { signIn } from '../../store/reducers/authSlice';
 
 const SignIn = () => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
+
   const [inputs, setInputs] = useState({
     email: '',
     password: '',
@@ -55,15 +59,21 @@ const SignIn = () => {
     setLoading(true);
     login(data)
       .then(res => {
-        writeData('user_details', res?.result);
-        writeData('user_Data', res.result?.token);
-        context.setUserData(res?.result);
-        setLoading(false);
         // successToast('success', res.result.message);
+          writeData('user_details', res.user);
+          writeData('user_token', res.token);
+          writeData('sign_type', res.user.role);
+          dispatch(signIn({
+            userToken: res.token,
+            signType: res.user.role,
+            userDetails: res.user,
+          }));
       })
       .catch(err => {
-        setLoading(false);
         alert(err);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
@@ -93,7 +103,7 @@ const SignIn = () => {
         </View>
         <View
           style={[styles.wrapper, styles.forgetSection, {marginBottom: 20}]}>
-          <View>
+          {/* <View>
             <CheckBox
               title={'Remember me'}
               onPress={() => {
@@ -101,7 +111,7 @@ const SignIn = () => {
               }}
               checked={inputs.remember}
             />
-          </View>
+          </View> */}
           <Text
             onPress={() => navigation.navigate('ForgetPassword')}
             style={styles.forgetText}>
@@ -139,9 +149,10 @@ const styles = StyleSheet.create({
     marginVertical: 5,
   },
   forgetSection: {
-    flexDirection: 'row',
+    // flexDirection: 'row',
     // alignItems:'center',
-    justifyContent: 'space-between',
+    // justifyContent: 'space-between',
+    alignSelf:"flex-end"
   },
   forgetText: {
     color: COLORS.textColor,

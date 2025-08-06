@@ -14,7 +14,6 @@ const Register = () => {
     phone: '',
     password: '',
     cPassword: '',
-    terms: false,
   });
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
@@ -85,18 +84,13 @@ const Register = () => {
       email: inputs.email,
       phone: inputs.phone,
       password: inputs.password,
-      terms: inputs.terms,
-      latitude: '22.5726',
-      longitude: '88.3639',
-      isAdmin: false,
-      isActive: true,
-
+      role: "customer"
     };
     setLoading(true);
     register(obj)
       .then(res => {
         navigation.navigate('RegVerify', {userData: res.savedUser});
-        alert('Registration successfull');
+        // alert('Registration successfull');
         setLoading(false);
       })
       .catch(err => {
@@ -167,7 +161,7 @@ const Register = () => {
             errorMessage={errors.cPassword}
           />
         </View>
-        <View style={[styles.wrapper, {marginBottom: 20}]}>
+        {/* <View style={[styles.wrapper, {marginBottom: 20}]}>
           <CheckBox
             title={'Agree our terms and service'}
             onPress={() => {
@@ -177,7 +171,7 @@ const Register = () => {
             checked={inputs.terms}
             errorMessage={errors.terms}
           />
-        </View>
+        </View> */}
       </View>
       <View style={styles.btnSection}>
         <Button

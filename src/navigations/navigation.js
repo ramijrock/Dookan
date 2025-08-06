@@ -1,28 +1,19 @@
 import React, { useContext, useEffect, useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import {readData} from '../utils/Utils';
-import appContext from "../context/appContext";
 import AppNavigation from "./appnavigation";
 import AuthNavigation from "./authNavigation";
+import { useSelector } from "react-redux";
 
 
 const Navigation = () => {
-    const context = useContext(appContext)
-
-    useEffect(() => {
-            CheckUserData();
-    }, [])
-
-    const CheckUserData = async () => {
-        let userData = await readData('user_details');
-        context.setUserData(userData);
-    }
+    const {userToken} = useSelector((state) => state.authReducer);
 
 
     return (
         <NavigationContainer>
             {
-                context.userData?.token == null ? (
+                userToken == null ? (
                     <AppNavigation />
                 ) : (
                     <AuthNavigation />
