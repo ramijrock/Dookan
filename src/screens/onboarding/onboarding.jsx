@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useRef } from "react";
-import { View, StyleSheet, Text, FlatList, Image, Dimensions } from "react-native";
+import { View, StyleSheet, Text, FlatList, Image, Dimensions, TouchableOpacity } from "react-native";
 import { Arrow, Button } from "../../components";
 import { COLORS } from "../../utils/globalColors";
 
@@ -53,6 +53,13 @@ const Onboarding = () => {
         }
     }
 
+    const skipToLastSlide = () => {
+        const lastIndex = slides.length - 1;
+        const offset = lastIndex * width;
+        ref?.current?.scrollToOffset({offset});
+        setIsActive(lastIndex);
+    }
+
     const RenderItem =({item}) => {
         return(
             <View style={{justifyContent:'center'}}>
@@ -67,9 +74,9 @@ const Onboarding = () => {
 
     return(
         <View style={styles.container}>
-            <View style={styles.top}>
+            <TouchableOpacity style={styles.top} onPress={skipToLastSlide}>
                 <Text style={styles.skipBtn}>Skip</Text>
-            </View>
+            </TouchableOpacity>
             <View style={styles.middle}>
                 <FlatList 
                     data={slides}
